@@ -1,0 +1,140 @@
+body {
+  font-family: monospace;
+  padding: 20px;
+  max-width: 700px;
+  background: #f7f8fb;
+  color: #1a1f2b;
+  line-height: 1.5;
+}
+
+h1 {
+  font-size: 22px;
+  margin-top: 0;
+}
+
+h2 {
+  font-size: 15px;
+  margin-top: 24px;
+}
+
+h3 {
+  font-size: 13px;
+  margin-top: 16px;
+  color: #5b6472;
+}
+
+/* curve info box */
+.info {
+  background: white;
+  border: 1px solid #dfe3ea;
+  border-radius: 8px;
+  padding: 14px 18px;
+  margin-bottom: 16px;
+}
+.info p {
+  margin: 4px 0;
+  font-size: 14px;
+}
+
+/* controls */
+.controls {
+  background: white;
+  border: 1px solid #dfe3ea;
+  border-radius: 8px;
+  padding: 14px 18px;
+  margin-bottom: 16px;
+}
+
+input, button {
+  font: inherit;
+  padding: 6px 10px;
+  border: 1px solid #dfe3ea;
+  border-radius: 6px;
+}
+
+input[type=number] {
+  width: 90px;
+}
+
+button {
+  cursor: pointer;
+  background: #4a6cf7;
+  color: white;
+  border: none;
+  font-weight: 600;
+}
+
+button:hover {
+  background: #3a57d6;
+}
+
+/* output table */
+#out {
+  background: white;
+  border: 1px solid #dfe3ea;
+  border-radius: 8px;
+  padding: 14px 18px;
+  margin-bottom: 16px;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin-top: 8px;
+}
+
+td, th {
+  border-bottom: 1px solid #dfe3ea;
+  padding: 6px 10px;
+  text-align: left;
+  font-size: 14px;
+}
+
+th {
+  color: #5b6472;
+  font-size: 12px;
+  text-transform: uppercase;
+}
+
+.final {
+  font-weight: bold;
+  margin-top: 12px;
+  padding: 10px 12px;
+  background: #0f1523;
+  color: #e6edf3;
+  border-radius: 6px;
+}
+
+/* formula reference box */
+.formulas {
+  background: white;
+  border: 1px solid #dfe3ea;
+  border-radius: 8px;
+  padding: 14px 18px;
+  margin-top: 20px;
+}
+
+.formulas p {
+  font-size: 14px;
+}
+
+.formulas pre {
+  background: #f0f2f7;
+  border-left: 3px solid #4a6cf7;
+  padding: 8px 12px;
+  border-radius: 4px;
+  font-size: 13px;
+  margin: 6px 0;
+  overflow-x: auto;
+}
+
+.formulas table {
+  width: auto;
+  margin-top: 10px;
+}
+
+.formulas table td,
+.formulas table th {
+  padding: 3px 14px;
+  font-size: 13px;
+}

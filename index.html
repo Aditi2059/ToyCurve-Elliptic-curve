@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Toy Curve</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <h1>Toy Elliptic Curve</h1>
+
+  <!-- ===== Curve info ===== -->
+  <div class="info">
+    <p><b>Curve:</b> y² ≡ x³ + 7 (mod 17)</p>
+    <p><b>Base point:</b> G = (1, 5)</p>
+    <p><b>a = 0, b = 7, p = 17</b></p>
+  </div>
+
+  <!-- ===== Input ===== -->
+  <div class="controls">
+    <label>Private key k =
+      <input id="k" type="number" value="6" min="1" max="18">
+    </label>
+    <button id="go">Compute</button>
+  </div>
+
+  <!-- ===== Output ===== -->
+  <div id="out"></div>
+
+  <!-- ===== Formula reference ===== -->
+  <div class="formulas">
+    <h2>How it works</h2>
+
+    <p>Each step in the chain adds G to the previous point. To add two points P = (x₁, y₁) and Q = (x₂, y₂), we do three steps.</p>
+
+    <h3>Step 1 — compute the slope m</h3>
+
+    <p><b>Case A: different points (chord)</b></p>
+    <pre>m = (y₂ − y₁) ÷ (x₂ − x₁)   mod 17</pre>
+
+    <p><b>Case B: same point (doubling / tangent)</b></p>
+    <pre>m = (3·x₁² + a) ÷ (2·y₁)   mod 17        (here a = 0)</pre>
+
+    <p>Division mod 17 means: multiply by the modular inverse.</p>
+
+    <h3>Step 2 — compute the new x</h3>
+    <pre>x₃ = m² − x₁ − x₂   mod 17</pre>
+
+    <h3>Step 3 — compute the new y</h3>
+    <pre>y₃ = m·(x₁ − x₃) − y₁   mod 17</pre>
+
+    <h3>Point at infinity</h3>
+    <p>If P and Q have the same x but opposite y (i.e. y₁ + y₂ ≡ 0 mod 17), the result is the point at infinity, written <b>O</b>. This acts like zero in the arithmetic.</p>
+
+    <h3>Result</h3>
+    <p>The new point is <b>(x₃, y₃)</b>, and it is the sum P + Q.</p>
+
+    <h3>Modular inverse reference (mod 17)</h3>
+    <table>
+      <tr><th>÷ by</th><th>× by</th></tr>
+      <tr><td>2</td><td>9</td></tr>
+      <tr><td>3</td><td>6</td></tr>
+      <tr><td>4</td><td>13</td></tr>
+      <tr><td>5</td><td>7</td></tr>
+      <tr><td>6</td><td>3</td></tr>
+      <tr><td>7</td><td>5</td></tr>
+      <tr><td>8</td><td>15</td></tr>
+      <tr><td>9</td><td>2</td></tr>
+      <tr><td>10</td><td>12</td></tr>
+      <tr><td>11</td><td>14</td></tr>
+      <tr><td>12</td><td>10</td></tr>
+      <tr><td>13</td><td>4</td></tr>
+      <tr><td>14</td><td>11</td></tr>
+      <tr><td>15</td><td>8</td></tr>
+      <tr><td>16</td><td>16</td></tr>
+    </table>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
